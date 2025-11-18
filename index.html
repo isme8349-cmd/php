@@ -1,4 +1,438 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرفی من - نام شما</title>
+    
+    <!-- Vazirmatn Font for Persian and Latin text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #F8F9FA;
+            color: #212529;
+            line-height: 1.8;
+            direction: rtl;
+        }
+        
+        /* Color Variables */
+        :root {
+            --primary-500: #0057FF;
+            --primary-700: #004AD6;
+            --primary-100: #E6EFFF;
+            --neutral-0: #FFFFFF;
+            --neutral-50: #F8F9FA;
+            --neutral-900: #212529;
+            --neutral-600: #6C757D;
+            --neutral-300: #DEE2E6;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--neutral-900);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        
+        .hero .title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--neutral-600);
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--neutral-0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-600);
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0, 87, 255, 0.06);
+            transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .contact-icon:hover {
+            color: var(--primary-500);
+            transform: scale(1.1);
+        }
+        
+        /* Section Cards */
+        .section-card {
+            background: var(--neutral-0);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 64px;
+            box-shadow: 0 8px 24px rgba(0, 87, 255, 0.06);
+        }
+        
+        .section-header {
+            padding-bottom: 24px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--neutral-300);
+        }
+        
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--neutral-900);
+        }
+        
+        /* Experience Items */
+        .experience-item {
+            margin-bottom: 32px;
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .job-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--neutral-900);
+            margin-bottom: 8px;
+        }
+        
+        .job-meta {
+            font-size: 15px;
+            color: var(--neutral-600);
+            margin-bottom: 16px;
+        }
+        
+        .job-description ul {
+            list-style: none;
+            padding-right: 0;
+        }
+        
+        .job-description li {
+            margin-bottom: 16px;
+            position: relative;
+            padding-right: 24px;
+        }
+        
+        .job-description li::before {
+            content: "•";
+            color: var(--primary-500);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        /* Skills Tags */
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .skill-tag {
+            background: var(--primary-100);
+            color: var(--primary-500);
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Primary Button */
+        .primary-btn {
+            display: inline-block;
+            background: var(--primary-500);
+            color: var(--neutral-0);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .primary-btn:hover {
+            background: var(--primary-700);
+            transform: translateY(-2px);
+        }
+        
+        .primary-btn:active {
+            transform: translateY(0px) scale(0.98);
+        }
+        
+        /* About Section */
+        .about-text {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+        
+        /* Contact Section */
+        .contact-cta {
+            text-align: center;
+            margin-top: 32px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero .title {
+                font-size: 18px;
+            }
+            
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .section-card {
+                padding: 24px;
+                margin-bottom: 48px;
+            }
+            
+            .contact-links {
+                gap: 16px;
+            }
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .contact-icon,
+            .primary-btn {
+                transition: none;
+            }
+            
+            .contact-icon:hover,
+            .primary-btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>نام شما</h1>
+            <p class="title">عنوان شغلی یا تحصیلی شما</p>
+            
+            <div class="contact-links">
+                <a href="/cdn-cgi/l/email-protection#41382e34336f242c20282d012439202c312d246f222e2c" class="contact-icon" title="ایمیل">
+                    <i data-lucide="mail"></i>
+                </a>
+                <a href="tel:+98123456789" class="contact-icon" title="تلفن">
+                    <i data-lucide="phone"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" class="contact-icon" title="لینکدین" target="_blank">
+                    <i data-lucide="linkedin"></i>
+                </a>
+                <a href="https://github.com/yourprofile" class="contact-icon" title="گیت‌هاب" target="_blank">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="#" class="contact-icon" title="وب‌سایت شخصی" target="_blank">
+                    <i data-lucide="globe"></i>
+                </a>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section class="section-card">
+            <div class="section-header">
+                <h2>درباره من</h2>
+            </div>
+            <div class="about-text">
+                <p>متن کوتاهی درباره خودتان بنویسید. اینجا می‌توانید اهداف، علاقه‌مندی‌ها، و دیدگاه‌های شغلی یا تحصیلی خود را معرفی کنید. می‌توانید درباره تجربیات مهم، مهارت‌های کلیدی، و آنچه شما را متمایز می‌کند صحبت کنید.</p>
+                <br>
+                <p>مثال: "من یک توسعه‌دهنده نرم‌افزار با علاقه ویژه به هوش مصنوعی و یادگیری ماشین هستم. با بیش از ۵ سال تجربه در توسعه وب و موبایل، همیشه به دنبال یادگیری تکنولوژی‌های جدید و حل مسائل پیچیده هستم."</p>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section class="section-card">
+            <div class="section-header">
+                <h2>تجربیات کاری</h2>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">نام سمت شغلی</h3>
+                <p class="job-meta">نام شرکت • تاریخ شروع - تاریخ پایان</p>
+                <div class="job-description">
+                    <ul>
+                        <li>شرح مسئولیت‌ها و دستاوردهای کلیدی در این موقعیت</li>
+                        <li>مثال: رهبری تیم توسعه و طراحی ۵ پروژه موفق</li>
+                        <li>مثال: بهبود عملکرد سیستم‌ها تا ۴۰٪</li>
+                        <li>مثال: پیاده‌سازی راهکارهای نوآورانه برای رفع نیازهای مشتری</li>
+                    </ul>
+                </div>
+                <div class="skills-tags">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">AWS</span>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">نام سمت شغلی قبلی</h3>
+                <p class="job-meta">نام شرکت قبلی • تاریخ شروع - تاریخ پایان</p>
+                <div class="job-description">
+                    <ul>
+                        <li>شرح تجربیات و موفقیت‌های دوره قبلی</li>
+                        <li>مثال: توسعه اپلیکیشن‌های موبایل با بیش از ۱۰۰ هزار کاربر</li>
+                        <li>مثال: همکاری مؤثر با تیم‌های بین‌المللی</li>
+                    </ul>
+                </div>
+                <div class="skills-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React Native</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section class="section-card">
+            <div class="section-header">
+                <h2>تحصیلات</h2>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">مدرک تحصیلی</h3>
+                <p class="job-meta">نام دانشگاه • سال اخذ مدرک</p>
+                <div class="job-description">
+                    <ul>
+                        <li>رشته تحصیلی و گرایش</li>
+                        <li>موضوع پایان‌نامه (در صورت وجود)</li>
+                        <li>موضوعات درسی مهم</li>
+                        <li>فعالیت‌های جانبی دانشگاهی</li>
+                    </ul>
+                </div>
+                <div class="skills-tags">
+                    <span class="skill-tag">مهندسی نرم‌افزار</span>
+                    <span class="skill-tag">هوش مصنوعی</span>
+                    <span class="skill-tag">مدیریت پروژه</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section class="section-card">
+            <div class="section-header">
+                <h2>مهارت‌ها</h2>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">مهارت‌های فنی</h3>
+                <div class="skills-tags">
+                    <span class="skill-tag">JavaScript/TypeScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">SQL/NoSQL</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">AWS/Azure</span>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="job-title">مهارت‌های نرم</h3>
+                <div class="skills-tags">
+                    <span class="skill-tag">رهبری تیم</span>
+                    <span class="skill-tag">حل مسئله</span>
+                    <span class="skill-tag">ارتباط موثر</span>
+                    <span class="skill-tag">مدیریت زمان</span>
+                    <span class="skill-tag">تفکر خلاق</span>
+                    <span class="skill-tag">پروژه‌نویسی</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Languages Section -->
+        <section class="section-card">
+            <div class="section-header">
+                <h2>زبان‌ها</h2>
+            </div>
+            
+            <div class="experience-item">
+                <div class="skills-tags">
+                    <span class="skill-tag">فارسی - زبان مادری</span>
+                    <span class="skill-tag">انگلیسی - پیشرفته</span>
+                    <span class="skill-tag">سایر زبان‌ها (در صورت وجود)</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact CTA Section -->
+        <section class="section-card">
+            <div class="contact-cta">
+                <h2>برای همکاری آماده‌ام!</h2>
+                <p style="margin: 16px 0; color: var(--neutral-600);">اگر به همکاری علاقه‌مندید یا پروژه‌ای در ذهن دارید، خوشحال می‌شوم با شما صحبت کنم.</p>
+                <a href="/cdn-cgi/l/email-protection#b0c9dfc5c29ed5ddd1d9dcf0d5c8d1ddc0dcd59ed3dfdd" class="primary-btn">تماس با من</a>
+            </div>
+        </section>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
 </html>
